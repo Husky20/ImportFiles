@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Register</h1>
+
+    <form method="post" action="{{ path('app_register') }}" class="form">
+        {{ form_row(form.email, {'label': 'E-mail:'}) }}
+        {{ form_row(form.password.first, {'label': 'Password:'}) }}
+        {{ form_row(form.password.second, {'label': 'Password confirmation:'}) }}
+
+        <button type="submit" class="btn btn-dark">Register</button>
+    </form>
+
+    <div class="button-container">
+        <a href="{{ path('app_login') }}">If you already have an account, click here to log in.</a>
+    </div>
+{% endblock %}

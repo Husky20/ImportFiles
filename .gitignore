@@ -7,7 +7,7 @@
 /.env
 /config/secrets/prod/prod.decrypt.private.php
 /public/bundles/
-/public/csv
+/public/csv/
 /migrations
 /var/
 /vendor/

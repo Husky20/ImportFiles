@@ -9,6 +9,7 @@ use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use Symfony\Component\String\Slugger\SluggerInterface;
 
 class FileController extends AbstractController
@@ -20,6 +21,10 @@ class FileController extends AbstractController
     #[Route('/import-file', name: 'import_file')]
     public function success(): Response
     {
+        if (!$this->getUser()) {
+            throw new AccessDeniedException('Access denied. Log in to continue.');
+        }
+
         return $this->render(
             'import_file/success.html.twig'
         );
@@ -28,6 +33,10 @@ class FileController extends AbstractController
     #[Route("/import-file/new", name: 'import_file_new')]
     public function import(Request $request, FileService $importFileService): Response
     {
+        if (!$this->getUser()) {
+            throw new AccessDeniedException('Access denied. Log in to continue.');
+        }
+
         $form = $this->createForm(ImportFileType::class);
 
         $form->handleRequest($request);

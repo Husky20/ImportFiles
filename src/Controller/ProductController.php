@@ -10,6 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 
 #[Route('/product')]
 class ProductController extends AbstractController
@@ -17,6 +18,10 @@ class ProductController extends AbstractController
     #[Route('/', name: 'app_product_index', methods: ['GET'])]
     public function index(ProductRepository $productRepository, Request $request,PaginatorInterface $paginator): Response
     {
+        if (!$this->getUser()) {
+            throw new AccessDeniedException('Access denied. Log in to continue.');
+        }
+
         $queryBuilder = $productRepository->createQueryBuilder('p');
         $pagination = $paginator->paginate($queryBuilder, $request->query->getInt('page', 1), 10);
 
