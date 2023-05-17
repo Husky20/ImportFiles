@@ -169,34 +169,14 @@ header a {
 }
 
 .pagination {
-    margin: 20px 0;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    padding: 10px;
 }
+.pagination
 
-.pagination .pagination-previous,
-.pagination .pagination-next,
-.pagination .pagination-page {
-    display: inline-block;
-    margin: 0 5px;
-    padding: 8px 16px;
-    background-color: #eee;
-    color: #333;
-    border-radius: 5px;
-    text-decoration: none;
-}
 
-.pagination .pagination-current {
-    display: inline-block;
-    margin: 0 5px;
-    padding: 8px 16px;
-    background-color: #333;
-    color: #fff;
-    border-radius: 5px;
-    text-decoration: none;
-}
 
-logout {
-    margin-left: 10px;
-}
 
 

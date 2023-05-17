@@ -28,6 +28,9 @@ class Product
     )]
     private int $number;
 
+    #[ORM\ManyToOne(inversedBy: 'products')]
+    private ?Category $category = null;
+
     public function getId(): int
     {
         return $this->id;
@@ -51,5 +54,17 @@ class Product
     public function setNumber(int $number): void
     {
         $this->number = $number ?? (strlen($number) === 8);
+    }
+
+    public function getCategory(): ?Category
+    {
+        return $this->category;
+    }
+
+    public function setCategory(?Category $category): self
+    {
+        $this->category = $category;
+
+        return $this;
     }
 }
