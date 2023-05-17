@@ -3,8 +3,17 @@
 /.env.local
 /.env.local.php
 /.env.*.local
+/.env.test
 /config/secrets/prod/prod.decrypt.private.php
 /public/bundles/
+/public/csv
+/migrations
 /var/
 /vendor/
 ###< symfony/framework-bundle ###
+
+###> phpunit/phpunit ###
+/phpunit.xml
+/phpunit.xml.dist
+.phpunit.result.cache
+###< phpunit/phpunit ###
