@@ -1,0 +1,11 @@
+{#You add file with success. Now you can use command: "import:products" to add products to database#}
+{% extends 'base.html.twig' %}
+
+{% block title %}Success{% endblock %}
+
+{% block body %}
+    <div class="success-container">
+        <h1>Successfully added the file. You can traz using the command: "php bin/console app:import-products" to save the contents of the file in the database.</h1>
+        <a href="{{ path('import_file_new') }}" class="btn btn-dark">Back</a>
+    </div>
+{% endblock %}
