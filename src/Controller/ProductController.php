@@ -20,7 +20,7 @@ class ProductController extends AbstractController
         $queryBuilder = $productRepository->createQueryBuilder('p');
         $pagination = $paginator->paginate($queryBuilder, $request->query->getInt('page', 1), 10);
 
-        return $this->render('product/_form.html.twig', [
+        return $this->render('product/index.html.twig', [
             'pagination' => $pagination,
         ]);
     }
